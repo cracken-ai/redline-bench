@@ -126,8 +126,9 @@ def heatmap(mode):
     s.append(f'<rect width="{w}" height="{h}" fill="{c["surface"]}"/>')
     s.append(f'<text x="{lm}" y="26" font-size="17" font-weight="700" fill="{c["ink"]}">'
              f'Refusal rate by use case</text>')
+    shade = "lighter" if mode == "dark" else "darker"
     s.append(f'<text x="{lm}" y="46" font-size="12" fill="{c["muted"]}">'
-             f'% refused (mean of 2 judges) · darker = more refusal</text>')
+             f'% refused (mean of 2 judges) · {shade} = more refusal</text>')
     # column headers (rotated)
     for j, m in enumerate(HM_MODELS):
         cx = lm + j * (cw + gap) + cw / 2
