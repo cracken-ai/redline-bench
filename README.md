@@ -269,7 +269,10 @@ its Sonnet 4.6 column for a clean number.
 
 **Reproducing a row:** run `generate.py` against the model, `run_judge.py` with one of the two
 verified judges, then `report.py`. Two things must match for numbers to line up: (1) the judge
-model/provider, (2) the invariants above.
+model/provider, (2) the invariants above. The reference run served local models
+(gemma, Qwen, Huihui) on vLLM (one A100 80GB, `--max-model-len 40960`, no `max_tokens`; Huihui,
+a Mamba/hybrid model, needs `--max-num-seqs 128`) and hosted models (Kimi ×2, DeepSeek ×2, GLM)
+via OpenRouter, judged by Sonnet 4.6 on Bedrock and DeepSeek V4 Pro on OpenRouter.
 
 ---
 

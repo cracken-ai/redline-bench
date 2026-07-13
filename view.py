@@ -2,7 +2,7 @@
 """Pretty-print model output JSONL files (`*_model_outputs.jsonl`) in the terminal.
 
 Usage:
-    python view_outputs.py PATH [PATH ...] [options]
+    python view.py PATH [PATH ...] [options]
 
 PATH may be a file or a directory (all *_model_outputs.jsonl inside are read).
 """
