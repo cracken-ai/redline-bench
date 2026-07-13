@@ -1,0 +1,9 @@
+# Core: the judge's structured-output schema.
+pydantic>=2
+
+# Judge provider SDKs (install only what you use):
+#   --provider bedrock     -> boto3   (AWS Bedrock Converse)
+#   --provider openrouter  -> none    (plain HTTP via the standard library)
+boto3
+
+# generate.py talks to any OpenAI-compatible endpoint over the standard library only.

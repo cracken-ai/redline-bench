@@ -1,0 +1,10 @@
+# Evaluation outputs (generate/judge write here)
+results/
+*_model_outputs.jsonl
+*_rubric_verdicts.jsonl
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
