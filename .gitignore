@@ -8,3 +8,10 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Chart PNGs are article/export artifacts; the repo ships SVGs (see README embeds)
+assets/results-*.png
+.DS_Store
+# Article-only visuals (README uses markdown tables + view.py for examples)
+assets/results-normalized-table*.svg
+assets/results-example*.svg

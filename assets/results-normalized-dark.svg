@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="444" viewBox="0 0 820 444" font-family="'Helvetica Neue',Arial,sans-serif">
+<rect width="820" height="444" fill="#0d1117"/>
+<text x="150" y="30" font-size="17" font-weight="700" fill="#e6edf3">Quality recovered when refusals are excluded</text>
+<text x="150" y="50" font-size="12" fill="#8b98a5">blended score (refusals = 0)  ▶  score on answered items only · mean of 2 judges</text>
+<line x1="237.1" y1="76" x2="237.1" y2="396" stroke="#242b33" stroke-width="1"/>
+<text x="237.1" y="414" font-size="12" fill="#8b98a5" text-anchor="middle">2</text>
+<line x1="411.4" y1="76" x2="411.4" y2="396" stroke="#242b33" stroke-width="1"/>
+<text x="411.4" y="414" font-size="12" fill="#8b98a5" text-anchor="middle">3</text>
+<line x1="585.7" y1="76" x2="585.7" y2="396" stroke="#242b33" stroke-width="1"/>
+<text x="585.7" y="414" font-size="12" fill="#8b98a5" text-anchor="middle">4</text>
+<line x1="760.0" y1="76" x2="760.0" y2="396" stroke="#242b33" stroke-width="1"/>
+<text x="760.0" y="414" font-size="12" fill="#8b98a5" text-anchor="middle">5</text>
+<text x="455" y="434" font-size="13" fill="#e6edf3" text-anchor="middle">Quality 0–5</text>
+<rect x="6" y="84.0" width="808" height="34" rx="4" fill="#161c24"/>
+<text x="138" y="105.0" font-size="12.5" font-weight="700" fill="#e6edf3" text-anchor="end">Kimi K3</text>
+<line x1="552.6" y1="101.0" x2="692.0" y2="101.0" stroke="#ff2e46" stroke-width="3" opacity="0.35"/>
+<circle cx="552.6" cy="101.0" r="5.5" fill="#0d1117" stroke="#8b98a5" stroke-width="2"/>
+<circle cx="692.0" cy="101.0" r="6" fill="#ff2e46" stroke="#0d1117" stroke-width="1.5"/>
+<text x="703.0" y="105.0" font-size="11.5" fill="#8b98a5" text-anchor="start">+0.80</text>
+<text x="138" y="139.0" font-size="12.5" font-weight="600" fill="#e6edf3" text-anchor="end">GLM-5.2</text>
+<line x1="385.3" y1="135.0" x2="679.8" y2="135.0" stroke="#ff2e46" stroke-width="3" opacity="0.35"/>
+<circle cx="385.3" cy="135.0" r="5.5" fill="#0d1117" stroke="#8b98a5" stroke-width="2"/>
+<circle cx="679.8" cy="135.0" r="6" fill="#ff2e46" stroke="#0d1117" stroke-width="1.5"/>
+<text x="690.8" y="139.0" font-size="11.5" fill="#8b98a5" text-anchor="start">+1.69</text>
+<text x="138" y="173.0" font-size="12.5" font-weight="600" fill="#e6edf3" text-anchor="end">Kimi K2.6</text>
+<line x1="529.9" y1="169.0" x2="672.9" y2="169.0" stroke="#ff2e46" stroke-width="3" opacity="0.35"/>
+<circle cx="529.9" cy="169.0" r="5.5" fill="#0d1117" stroke="#8b98a5" stroke-width="2"/>
+<circle cx="672.9" cy="169.0" r="6" fill="#ff2e46" stroke="#0d1117" stroke-width="1.5"/>
+<text x="683.9" y="173.0" font-size="11.5" fill="#8b98a5" text-anchor="start">+0.82</text>
+<text x="138" y="207.0" font-size="12.5" font-weight="600" fill="#e6edf3" text-anchor="end">Kimi K2.7-Code</text>
+<line x1="531.7" y1="203.0" x2="669.4" y2="203.0" stroke="#ff2e46" stroke-width="3" opacity="0.35"/>
+<circle cx="531.7" cy="203.0" r="5.5" fill="#0d1117" stroke="#8b98a5" stroke-width="2"/>
+<circle cx="669.4" cy="203.0" r="6" fill="#ff2e46" stroke="#0d1117" stroke-width="1.5"/>
+<text x="680.4" y="207.0" font-size="11.5" fill="#8b98a5" text-anchor="start">+0.79</text>
+<text x="138" y="241.0" font-size="12.5" font-weight="600" fill="#e6edf3" text-anchor="end">DeepSeek V4 Pro</text>
+<line x1="606.6" y1="237.0" x2="653.7" y2="237.0" stroke="#ff2e46" stroke-width="3" opacity="0.35"/>
+<circle cx="606.6" cy="237.0" r="5.5" fill="#0d1117" stroke="#8b98a5" stroke-width="2"/>
+<circle cx="653.7" cy="237.0" r="6" fill="#ff2e46" stroke="#0d1117" stroke-width="1.5"/>
+<text x="664.7" y="241.0" font-size="11.5" fill="#8b98a5" text-anchor="start">+0.27</text>
+<text x="138" y="275.0" font-size="12.5" font-weight="600" fill="#e6edf3" text-anchor="end">DeepSeek V4 Flash</text>
+<line x1="590.9" y1="271.0" x2="638.0" y2="271.0" stroke="#ff2e46" stroke-width="3" opacity="0.35"/>
+<circle cx="590.9" cy="271.0" r="5.5" fill="#0d1117" stroke="#8b98a5" stroke-width="2"/>
+<circle cx="638.0" cy="271.0" r="6" fill="#ff2e46" stroke="#0d1117" stroke-width="1.5"/>
+<text x="649.0" y="275.0" font-size="11.5" fill="#8b98a5" text-anchor="start">+0.27</text>
+<text x="138" y="309.0" font-size="12.5" font-weight="600" fill="#e6edf3" text-anchor="end">Qwen3.6-27B</text>
+<line x1="535.2" y1="305.0" x2="624.1" y2="305.0" stroke="#ff2e46" stroke-width="3" opacity="0.35"/>
+<circle cx="535.2" cy="305.0" r="5.5" fill="#0d1117" stroke="#8b98a5" stroke-width="2"/>
+<circle cx="624.1" cy="305.0" r="6" fill="#ff2e46" stroke="#0d1117" stroke-width="1.5"/>
+<text x="635.1" y="309.0" font-size="11.5" fill="#8b98a5" text-anchor="start">+0.51</text>
+<text x="138" y="343.0" font-size="12.5" font-weight="600" fill="#e6edf3" text-anchor="end">Huihui-35B abl</text>
+<line x1="563.1" y1="339.0" x2="596.2" y2="339.0" stroke="#ff2e46" stroke-width="3" opacity="0.35"/>
+<circle cx="563.1" cy="339.0" r="5.5" fill="#0d1117" stroke="#8b98a5" stroke-width="2"/>
+<circle cx="596.2" cy="339.0" r="6" fill="#ff2e46" stroke="#0d1117" stroke-width="1.5"/>
+<text x="607.2" y="343.0" font-size="11.5" fill="#8b98a5" text-anchor="start">+0.19</text>
+<text x="138" y="377.0" font-size="12.5" font-weight="600" fill="#e6edf3" text-anchor="end">gemma-4-E2B</text>
+<line x1="219.7" y1="373.0" x2="421.9" y2="373.0" stroke="#ff2e46" stroke-width="3" opacity="0.35"/>
+<circle cx="219.7" cy="373.0" r="5.5" fill="#0d1117" stroke="#8b98a5" stroke-width="2"/>
+<circle cx="421.9" cy="373.0" r="6" fill="#ff2e46" stroke="#0d1117" stroke-width="1.5"/>
+<text x="432.9" y="377.0" font-size="11.5" fill="#8b98a5" text-anchor="start">+1.16</text>
+<circle cx="610.0" cy="54.0" r="5.5" fill="#0d1117" stroke="#8b98a5" stroke-width="2"/>
+<text x="620.0" y="58.0" font-size="11" fill="#8b98a5">blended</text>
+<circle cx="690.0" cy="54.0" r="6" fill="#ff2e46"/>
+<text x="700.0" y="58.0" font-size="11" fill="#8b98a5">answered</text>
+</svg>
