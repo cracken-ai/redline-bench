@@ -1,4 +1,13 @@
 <p align="center">
+  <a href="https://cracken.ai">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/cracken-logo-dark.svg">
+      <img alt="Cracken" src="assets/cracken-logo.svg" width="190">
+    </picture>
+  </a>
+</p>
+
+<p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.svg">
     <img alt="RedLineBench" src="assets/logo.svg" width="560">
