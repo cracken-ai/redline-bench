@@ -324,8 +324,7 @@ result here validates our own abliteration work.
 ‡ **DeepSeek V4 Pro** is one of the two judges, so its DS column is partly self-judged; read
 its Sonnet 4.6 column for a clean number.
 § **DeepSeek V4 Flash 0731 / Pro 0813** are the dated provider snapshots; the unsuffixed
-DeepSeek V4 rows are the rolling `-latest` endpoints. `flash-0713` is not served on OpenRouter,
-so the closest earlier flash snapshot (`0731`) was used. Two Flash-0731 items ran away into a
+DeepSeek V4 rows are the rolling `-latest` endpoints. Two Flash-0731 items ran away into a
 non-terminating temperature-0 loop (>300k chars, never finishing) and were scored as empty
 (non-answers) rather than left unjudged — the fair outcome for output with no usable content.
 
