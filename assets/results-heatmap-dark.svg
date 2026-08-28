@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="826" height="406" viewBox="0 0 826 406" font-family="'Helvetica Neue',Arial,sans-serif">
-<rect width="826" height="406" fill="#0d1117"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="978" height="406" viewBox="0 0 978 406" font-family="'Helvetica Neue',Arial,sans-serif">
+<rect width="978" height="406" fill="#0d1117"/>
 <text x="118" y="26" font-size="17" font-weight="700" fill="#e6edf3">Refusal rate by use case</text>
 <text x="118" y="46" font-size="12" fill="#8b98a5">% refused (mean of 2 judges) · lighter = more refusal</text>
 <text x="155" y="70" font-size="12" fill="#e6edf3" text-anchor="start" transform="rotate(-35 155 70)">gemma</text>
@@ -11,6 +11,8 @@
 <text x="611" y="70" font-size="12" fill="#e6edf3" text-anchor="start" transform="rotate(-35 611 70)">Huihui</text>
 <text x="687" y="70" font-size="12" fill="#e6edf3" text-anchor="start" transform="rotate(-35 687 70)">DS-Pro</text>
 <text x="763" y="70" font-size="12" fill="#e6edf3" text-anchor="start" transform="rotate(-35 763 70)">DS-Flash</text>
+<text x="839" y="70" font-size="12" fill="#e6edf3" text-anchor="start" transform="rotate(-35 839 70)">DS-Pro 0813</text>
+<text x="915" y="70" font-size="12" fill="#e6edf3" text-anchor="start" transform="rotate(-35 915 70)">DS-Flash 0731</text>
 <text x="108" y="105" font-size="12" fill="#e6edf3" text-anchor="end">post_exploit.</text>
 <rect x="118" y="78" width="74" height="46" rx="3" fill="#ff2e46"/>
 <text x="155" y="105" font-size="12" fill="#e6edf3" text-anchor="middle">85</text>
@@ -30,6 +32,10 @@
 <text x="687" y="105" font-size="12" fill="#e6edf3" text-anchor="middle">21</text>
 <rect x="726" y="78" width="74" height="46" rx="3" fill="#7b1d28"/>
 <text x="763" y="105" font-size="12" fill="#e6edf3" text-anchor="middle">32</text>
+<rect x="802" y="78" width="74" height="46" rx="3" fill="#b12434"/>
+<text x="839" y="105" font-size="12" fill="#e6edf3" text-anchor="middle">54</text>
+<rect x="878" y="78" width="74" height="46" rx="3" fill="#b12434"/>
+<text x="915" y="105" font-size="12" fill="#e6edf3" text-anchor="middle">54</text>
 <text x="108" y="153" font-size="12" fill="#e6edf3" text-anchor="end">recon</text>
 <rect x="118" y="126" width="74" height="46" rx="3" fill="#891f2c"/>
 <text x="155" y="153" font-size="12" fill="#e6edf3" text-anchor="middle">38</text>
@@ -49,6 +55,10 @@
 <text x="687" y="153" font-size="12" fill="#e6edf3" text-anchor="middle">8</text>
 <rect x="726" y="126" width="74" height="46" rx="3" fill="#2a1417"/>
 <text x="763" y="153" font-size="12" fill="#e6edf3" text-anchor="middle">0</text>
+<rect x="802" y="126" width="74" height="46" rx="3" fill="#48171d"/>
+<text x="839" y="153" font-size="12" fill="#e6edf3" text-anchor="middle">12</text>
+<rect x="878" y="126" width="74" height="46" rx="3" fill="#6b1b25"/>
+<text x="915" y="153" font-size="12" fill="#e6edf3" text-anchor="middle">26</text>
 <text x="108" y="201" font-size="12" fill="#e6edf3" text-anchor="end">payload</text>
 <rect x="118" y="174" width="74" height="46" rx="3" fill="#631b23"/>
 <text x="155" y="201" font-size="12" fill="#e6edf3" text-anchor="middle">23</text>
@@ -68,6 +78,10 @@
 <text x="687" y="201" font-size="12" fill="#e6edf3" text-anchor="middle">0</text>
 <rect x="726" y="174" width="74" height="46" rx="3" fill="#2a1417"/>
 <text x="763" y="201" font-size="12" fill="#e6edf3" text-anchor="middle">0</text>
+<rect x="802" y="174" width="74" height="46" rx="3" fill="#341519"/>
+<text x="839" y="201" font-size="12" fill="#e6edf3" text-anchor="middle">4</text>
+<rect x="878" y="174" width="74" height="46" rx="3" fill="#93202e"/>
+<text x="915" y="201" font-size="12" fill="#e6edf3" text-anchor="middle">42</text>
 <text x="108" y="249" font-size="12" fill="#e6edf3" text-anchor="end">failure_rec.</text>
 <rect x="118" y="222" width="74" height="46" rx="3" fill="#751d27"/>
 <text x="155" y="249" font-size="12" fill="#e6edf3" text-anchor="middle">30</text>
@@ -87,6 +101,10 @@
 <text x="687" y="249" font-size="12" fill="#e6edf3" text-anchor="middle">4</text>
 <rect x="726" y="222" width="74" height="46" rx="3" fill="#2a1417"/>
 <text x="763" y="249" font-size="12" fill="#e6edf3" text-anchor="middle">0</text>
+<rect x="802" y="222" width="74" height="46" rx="3" fill="#52181f"/>
+<text x="839" y="249" font-size="12" fill="#e6edf3" text-anchor="middle">16</text>
+<rect x="878" y="222" width="74" height="46" rx="3" fill="#701c26"/>
+<text x="915" y="249" font-size="12" fill="#e6edf3" text-anchor="middle">28</text>
 <text x="108" y="297" font-size="12" fill="#e6edf3" text-anchor="end">tool_cmd</text>
 <rect x="118" y="270" width="74" height="46" rx="3" fill="#7a1d28"/>
 <text x="155" y="297" font-size="12" fill="#e6edf3" text-anchor="middle">32</text>
@@ -106,6 +124,10 @@
 <text x="687" y="297" font-size="12" fill="#e6edf3" text-anchor="middle">0</text>
 <rect x="726" y="270" width="74" height="46" rx="3" fill="#2a1417"/>
 <text x="763" y="297" font-size="12" fill="#e6edf3" text-anchor="middle">0</text>
+<rect x="802" y="270" width="74" height="46" rx="3" fill="#4d181e"/>
+<text x="839" y="297" font-size="12" fill="#e6edf3" text-anchor="middle">14</text>
+<rect x="878" y="270" width="74" height="46" rx="3" fill="#841f2a"/>
+<text x="915" y="297" font-size="12" fill="#e6edf3" text-anchor="middle">36</text>
 <text x="108" y="345" font-size="12" fill="#e6edf3" text-anchor="end">vuln_id</text>
 <rect x="118" y="318" width="74" height="46" rx="3" fill="#5e1a22"/>
 <text x="155" y="345" font-size="12" fill="#e6edf3" text-anchor="middle">21</text>
@@ -125,4 +147,8 @@
 <text x="687" y="345" font-size="12" fill="#e6edf3" text-anchor="middle">4</text>
 <rect x="726" y="318" width="74" height="46" rx="3" fill="#341519"/>
 <text x="763" y="345" font-size="12" fill="#e6edf3" text-anchor="middle">4</text>
+<rect x="802" y="318" width="74" height="46" rx="3" fill="#341519"/>
+<text x="839" y="345" font-size="12" fill="#e6edf3" text-anchor="middle">4</text>
+<rect x="878" y="318" width="74" height="46" rx="3" fill="#811e2a"/>
+<text x="915" y="345" font-size="12" fill="#e6edf3" text-anchor="middle">35</text>
 </svg>

@@ -1,6 +1,6 @@
 """Generate the RedLineBench result charts as static SVGs (light + dark).
 
-Numbers are the reference run (9 models, mean of the two judges, Sonnet 4.6 / DeepSeek V4 Pro),
+Numbers are the reference run (11 models, mean of the two judges, Sonnet 4.6 / DeepSeek V4 Pro),
 kept in sync with the tables in README.md. Run: python assets/make_charts.py
 """
 from pathlib import Path
@@ -8,15 +8,17 @@ from pathlib import Path
 # model: (refusal_s46, refusal_ds, quality_s46, quality_ds, label, dx, dy, anchor)
 # dx/dy = label offset in px from the point; anchor = start|middle|end
 MODELS = [
-    ("gemma-4-E2B",        38, 39, 1.96, 1.83, "gemma-4-E2B",     10,  4, "start"),
-    ("Qwen3.6-27B",        11, 13, 3.73, 3.70, "Qwen3.6-27B",      0,  22, "middle"),
-    ("Huihui-35B abl",      7,  3, 3.79, 3.95, "Huihui-35B abl", -10, -14, "end"),
-    ("Kimi K2.6",          17, 19, 3.68, 3.68, "Kimi K2.6",       12,  16, "start"),
-    ("Kimi K2.7-Code",     17, 18, 3.66, 3.72, "Kimi K2.7-Code",  12,  30, "start"),
-    ("Kimi K3",            14, 20, 3.87, 3.75, "Kimi K3",        -12, -12, "end"),
-    ("DeepSeek V4 Flash",   7,  5, 3.97, 4.09, "DeepSeek V4 Flash",14, 14, "start"),
-    ("DeepSeek V4 Pro",     7,  5, 4.06, 4.19, "DeepSeek V4 Pro",  14, -8, "start"),
-    ("GLM-5.2",            35, 39, 2.88, 2.82, "GLM-5.2",          0, -14, "middle"),
+    ("gemma-4-E2B",         38, 39, 1.96, 1.83, "gemma-4-E2B",     10,  4, "start"),
+    ("Qwen3.6-27B",         11, 13, 3.73, 3.70, "Qwen3.6-27B",      0,  22, "middle"),
+    ("Huihui-35B abl",       7,  3, 3.79, 3.95, "Huihui-35B abl", -10, -14, "end"),
+    ("Kimi K2.6",           17, 19, 3.68, 3.68, "Kimi K2.6",       12,  16, "start"),
+    ("Kimi K2.7-Code",      17, 18, 3.66, 3.72, "Kimi K2.7-Code",  12,  30, "start"),
+    ("Kimi K3",             14, 20, 3.87, 3.75, "Kimi K3",        -12, -12, "end"),
+    ("DeepSeek V4 Flash",    7,  5, 3.97, 4.09, "DeepSeek V4 Flash",14, 14, "start"),
+    ("DeepSeek V4 Pro",      7,  5, 4.06, 4.19, "DeepSeek V4 Pro",  14, -8, "start"),
+    ("DeepSeek V4 Flash 0731", 37, 37, 2.63, 2.67, "DS V4 Flash 0731", 0, 26, "middle"),
+    ("DeepSeek V4 Pro 0813",   17, 18, 3.65, 3.73, "DS V4 Pro 0813", -14, 22, "end"),
+    ("GLM-5.2",             35, 39, 2.88, 2.82, "GLM-5.2",          0, -14, "middle"),
 ]
 
 W, H = 820, 500
@@ -45,7 +47,7 @@ def svg(mode):
     s.append(f'<text x="{L}" y="26" font-size="17" font-weight="700" fill="{c["ink"]}">'
              f'Refusal vs. capability</text>')
     s.append(f'<text x="{W-R}" y="26" font-size="12" fill="{c["muted"]}" text-anchor="end">'
-             f'mean of 2 judges · 9 models</text>')
+             f'mean of 2 judges · 11 models</text>')
     # y gridlines + labels (quality 0..5)
     for q in range(0, 6):
         y = ypix(q)
@@ -79,22 +81,29 @@ def svg(mode):
 
 # ---- heatmap: refusal % by use_case (mean of the two judges) ----
 # cell = (s46, ds) refusal percentages
-HM_MODELS = ["gemma", "GLM", "Kimi3", "Kimi2.7", "Kimi2.6", "Qwen", "Huihui", "DS-Pro", "DS-Flash"]
+HM_MODELS = ["gemma", "GLM", "Kimi3", "Kimi2.7", "Kimi2.6", "Qwen", "Huihui",
+             "DS-Pro", "DS-Flash", "DS-Pro 0813", "DS-Flash 0731"]
 HM_UCS = ["post_exploit.", "recon", "payload", "failure_rec.", "tool_cmd", "vuln_id"]
 # rows = use_case, cols = model (order matches HM_MODELS)
 HM = {
     "post_exploit.": {"gemma": (85, 85), "GLM": (85, 85), "Kimi3": (69, 73), "Kimi2.7": (58, 62), "Kimi2.6": (50, 50),
-                        "Qwen": (54, 62), "Huihui": (27, 0), "DS-Pro": (27, 15), "DS-Flash": (38, 27)},
+                        "Qwen": (54, 62), "Huihui": (27, 0), "DS-Pro": (27, 15), "DS-Flash": (38, 27),
+                        "DS-Pro 0813": (54, 54), "DS-Flash 0731": (54, 54)},
     "recon":           {"gemma": (36, 40), "GLM": (28, 32), "Kimi3": (8, 16), "Kimi2.7": (16, 16), "Kimi2.6": (16, 20),
-                        "Qwen": (8, 8),   "Huihui": (8, 8),  "DS-Pro": (8, 8),   "DS-Flash": (0, 0)},
+                        "Qwen": (8, 8),   "Huihui": (8, 8),  "DS-Pro": (8, 8),   "DS-Flash": (0, 0),
+                        "DS-Pro 0813": (12, 12), "DS-Flash 0731": (24, 28)},
     "payload":         {"gemma": (23, 23), "GLM": (35, 38), "Kimi3": (0, 4), "Kimi2.7": (8, 8),   "Kimi2.6": (12, 15),
-                        "Qwen": (0, 0),   "Huihui": (0, 0),  "DS-Pro": (0, 0),   "DS-Flash": (0, 0)},
+                        "Qwen": (0, 0),   "Huihui": (0, 0),  "DS-Pro": (0, 0),   "DS-Flash": (0, 0),
+                        "DS-Pro 0813": (4, 4), "DS-Flash 0731": (42, 42)},
     "failure_rec.":    {"gemma": (28, 32), "GLM": (32, 36), "Kimi3": (4, 16), "Kimi2.7": (16, 16), "Kimi2.6": (12, 16),
-                        "Qwen": (0, 4),   "Huihui": (0, 4),  "DS-Pro": (4, 4),   "DS-Flash": (0, 0)},
+                        "Qwen": (0, 4),   "Huihui": (0, 4),  "DS-Pro": (4, 4),   "DS-Flash": (0, 0),
+                        "DS-Pro 0813": (16, 16), "DS-Flash 0731": (28, 28)},
     "tool_cmd":        {"gemma": (32, 32), "GLM": (12, 20), "Kimi3": (4, 4), "Kimi2.7": (4, 4),   "Kimi2.6": (8, 8),
-                        "Qwen": (4, 4),   "Huihui": (0, 0),  "DS-Pro": (0, 0),   "DS-Flash": (0, 0)},
+                        "Qwen": (4, 4),   "Huihui": (0, 0),  "DS-Pro": (0, 0),   "DS-Flash": (0, 0),
+                        "DS-Pro 0813": (12, 16), "DS-Flash 0731": (36, 36)},
     "vuln_id":         {"gemma": (23, 19), "GLM": (19, 23), "Kimi3": (0, 8), "Kimi2.7": (0, 4),   "Kimi2.6": (4, 4),
-                        "Qwen": (0, 0),   "Huihui": (4, 4),  "DS-Pro": (4, 4),   "DS-Flash": (4, 4)},
+                        "Qwen": (0, 0),   "Huihui": (4, 4),  "DS-Pro": (4, 4),   "DS-Flash": (4, 4),
+                        "DS-Pro 0813": (4, 4), "DS-Flash 0731": (35, 35)},
 }
 
 def lerp(a, b, t): return a + (b - a) * t
@@ -152,15 +161,17 @@ def heatmap(mode):
 # The gap is the capability zeroed out by refusals -- what domain abliteration recovers.
 # (model, blended_avg, normalized_avg); rows drawn top->bottom in this order.
 DB = [
-    ("Kimi K3",           3.81, 4.61),
-    ("GLM-5.2",           2.85, 4.54),
-    ("Kimi K2.6",         3.68, 4.50),
-    ("Kimi K2.7-Code",    3.69, 4.48),
-    ("DeepSeek V4 Pro",   4.12, 4.39),
-    ("DeepSeek V4 Flash", 4.03, 4.30),
-    ("Qwen3.6-27B",       3.71, 4.22),
-    ("Huihui-35B abl",    3.87, 4.06),
-    ("gemma-4-E2B",       1.90, 3.06),
+    ("Kimi K3",             3.81, 4.61),
+    ("GLM-5.2",             2.85, 4.54),
+    ("Kimi K2.6",           3.68, 4.50),
+    ("Kimi K2.7-Code",      3.69, 4.48),
+    ("DeepSeek V4 Pro 0813",3.69, 4.46),
+    ("DeepSeek V4 Pro",     4.12, 4.39),
+    ("DeepSeek V4 Flash",   4.03, 4.30),
+    ("Qwen3.6-27B",         3.71, 4.22),
+    ("DeepSeek V4 Flash 0731", 2.65, 4.21),
+    ("Huihui-35B abl",      3.87, 4.06),
+    ("gemma-4-E2B",         1.90, 3.06),
 ]
 DB_HL = "Kimi K3"  # highlighted row
 
@@ -221,9 +232,11 @@ TBL = [
     ("GLM-5.2",                     "2.88 / 2.82", "4.45 / 4.63", "+1.69"),
     ("Kimi K2.6",                   "3.68 / 3.68", "4.44 / 4.55", "+0.82"),
     ("Kimi K2.7-Code",              "3.66 / 3.72", "4.41 / 4.56", "+0.79"),
+    ("DeepSeek V4 Pro 0813",        "3.65 / 3.73", "4.39 / 4.53", "+0.77"),
     ("DeepSeek V4 Pro",             "4.06 / 4.19", "4.37 / 4.42", "+0.27"),
     ("DeepSeek V4 Flash",           "3.97 / 4.09", "4.28 / 4.32", "+0.27"),
     ("Qwen3.6-27B",                 "3.73 / 3.70", "4.19 / 4.26", "+0.51"),
+    ("DeepSeek V4 Flash 0731",      "2.63 / 2.67", "4.15 / 4.26", "+1.56"),
     ("Huihui-35B-A3B (abliterated)","3.79 / 3.95", "4.06 / 4.06", "+0.19"),
     ("gemma-4-E2B",                 "1.96 / 1.83", "3.15 / 2.97", "+1.16"),
 ]
