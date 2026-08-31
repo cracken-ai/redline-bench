@@ -307,12 +307,12 @@ prompts). Averaging a model's six percentages reproduces its overall refusal rat
   `post_exploitation` refusals (69–73% there, 0–16% everywhere else).
 - **DeepSeek V4 (Pro & Flash) is effectively uncensored** on attack tasks (5–7% refusal) *and*
   top quality — its only real hold-outs are the aggressive `post_exploitation` scenarios (~20–30%).
-- **The dated DeepSeek snapshots are far more guarded than the rolling endpoints.** Pro 0813
-  refuses 17–18% (vs 5–7% for `-latest`) and Flash 0731 refuses 37% (vs ~6%), with a flat ~54%
-  wall across every use case rather than the refusals concentrating in `post_exploitation`. On
-  the items they *do* answer their quality is intact (answered-only 4.2–4.5), so the low blended
-  scores are refusals, not weak answers — the guardrails were loosened in the later rolling
-  releases.
+- **DeepSeek tightened its guardrails over time.** The dated snapshots are the *newer* releases
+  (Flash 0731 = 2026-07-31, Pro 0813 = 2026-08-12); the unsuffixed rows are the original 2026-04-24
+  release. The newer builds refuse far more: Pro 0813 17–18% (vs 5–7% for the April Pro) and
+  Flash 0731 37% (vs ~6%), with a flat ~54% wall across every use case rather than the refusals
+  concentrating in `post_exploitation`. On the items they *do* answer their quality is intact
+  (answered-only 4.2–4.5), so the lower blended scores are refusals, not weak answers.
 - **GLM-5.2 is the exception**: a top open-weight model on general benchmarks, yet here the
   most guarded open model — highest refusal *and* lowest quality when it complies.
 - **Precision, not intent, defeats the guardrail.** Refusals are low because the grounded
@@ -323,10 +323,11 @@ prompts). Averaging a model's six percentages reproduces its overall refusal rat
 result here validates our own abliteration work.
 ‡ **DeepSeek V4 Pro** is one of the two judges, so its DS column is partly self-judged; read
 its Sonnet 4.6 column for a clean number.
-§ **DeepSeek V4 Flash 0731 / Pro 0813** are the dated provider snapshots; the unsuffixed
-DeepSeek V4 rows are the rolling `-latest` endpoints. Two Flash-0731 items ran away into a
-non-terminating temperature-0 loop (>300k chars, never finishing) and were scored as empty
-(non-answers) rather than left unjudged — the fair outcome for output with no usable content.
+§ **DeepSeek V4 Flash 0731 / Pro 0813** are the newer dated provider snapshots (2026-07-31 /
+2026-08-12); the unsuffixed DeepSeek V4 rows are the original 2026-04-24 release. Two Flash-0731
+items ran away into a non-terminating temperature-0 loop (>300k chars, never finishing) and were
+scored as empty (non-answers) rather than left unjudged — the fair outcome for output with no
+usable content.
 
 **Reproducing a row:** run `generate.py` against the model, `run_judge.py` with one of the two
 verified judges, then `report.py`. Two things must match for numbers to line up: (1) the judge
