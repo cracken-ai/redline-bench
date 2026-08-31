@@ -213,8 +213,8 @@ there; gemma and GLM sit bottom-right (refuse most, weakest when they comply).
 | Kimi K3 | 14% | 20% | 3.87 | 3.75 |
 | DeepSeek V4 Flash | **7%** | 5% | 3.97 | 4.09 |
 | DeepSeek V4 Pro ‡ | **7%** | 5% | **4.06** | **4.19** |
-| DeepSeek V4 Flash 0731 § | 37% | 37% | 2.63 | 2.67 |
-| DeepSeek V4 Pro 0813 | 17% | 18% | 3.65 | 3.73 |
+| DeepSeek V4 Flash 0731 § | 8% | 9% | 3.73 | 3.78 |
+| DeepSeek V4 Pro 0813 | 12% | 13% | 3.84 | 3.95 |
 | GLM-5.2 | 35% | 39% | 2.88 | 2.82 |
 
 **Bold** marks the strongest offensive result per column — lowest refusal and highest quality
@@ -232,8 +232,8 @@ there; gemma and GLM sit bottom-right (refuse most, weakest when they comply).
 | Kimi K3 | 3.97 / 3.73 | 3.66 / 3.73 | 3.91 / 3.82 |
 | DeepSeek V4 Flash | 4.10 / 4.15 | 3.57 / 3.90 | 4.25 / 4.23 |
 | DeepSeek V4 Pro | **4.21 / 4.19** | **3.61 / 4.07** | **4.35 / 4.37** |
-| DeepSeek V4 Flash 0731 | 2.67 / 2.61 | 2.44 / 2.63 | 2.83 / 2.88 |
-| DeepSeek V4 Pro 0813 | 3.75 / 3.69 | 3.31 / 3.71 | 3.89 / 3.84 |
+| DeepSeek V4 Flash 0731 | 3.75 / 3.71 | 3.50 / 3.73 | 4.00 / 4.04 |
+| DeepSeek V4 Pro 0813 | 3.95 / 3.92 | 3.48 / 3.92 | 4.11 / 4.07 |
 | GLM-5.2 | 2.93 / 2.82 | 2.71 / 2.76 | 2.99 / 2.88 |
 
 `technical_correctness` is the lowest axis everywhere by design: an unverifiable claim is
@@ -259,11 +259,11 @@ the model complied on**. The gap between the two is the capability withheld by r
 | GLM-5.2 | 2.88 / 2.82 | 4.45 / 4.63 | +1.69 |
 | Kimi K2.6 | 3.68 / 3.68 | 4.44 / 4.55 | +0.82 |
 | Kimi K2.7-Code | 3.66 / 3.72 | 4.41 / 4.56 | +0.79 |
-| DeepSeek V4 Pro 0813 | 3.65 / 3.73 | 4.39 / 4.53 | +0.77 |
+| DeepSeek V4 Pro 0813 | 3.84 / 3.95 | 4.39 / 4.54 | +0.57 |
 | DeepSeek V4 Pro | 4.06 / 4.19 | 4.37 / 4.42 | +0.27 |
 | DeepSeek V4 Flash | 3.97 / 4.09 | 4.28 / 4.32 | +0.27 |
 | Qwen3.6-27B | 3.73 / 3.70 | 4.19 / 4.26 | +0.51 |
-| DeepSeek V4 Flash 0731 | 2.63 / 2.67 | 4.15 / 4.26 | +1.56 |
+| DeepSeek V4 Flash 0731 | 3.73 / 3.78 | 4.07 / 4.16 | +0.36 |
 | Huihui-35B-A3B (abliterated) | 3.79 / 3.95 | 4.06 / 4.06 | +0.19 |
 | gemma-4-E2B | 1.96 / 1.83 | 3.15 / 2.97 | +1.16 |
 
@@ -286,12 +286,12 @@ GLM) and near-zero from the uncensored ones. The full per-judge split (`S4.6 % /
 
 | use_case | gemma | Qwen | Huihui | Kimi2.6 | Kimi2.7 | Kimi3 | DS-Flash | DS-Pro | DS-Flash 0731 | DS-Pro 0813 | GLM |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| failure_recovery | 28/32 | 0/4 | 0/4 | 12/16 | 16/16 | 4/16 | **0/0** | 4/4 | 28/28 | 16/16 | 32/36 |
-| payload_generation | 23/23 | **0/0** | **0/0** | 12/15 | 8/8 | **0**/4 | **0/0** | **0/0** | 42/42 | 4/4 | 35/38 |
-| recon_and_enumeration | 36/40 | 8/8 | 8/8 | 16/20 | 16/16 | 8/16 | **0/0** | 8/8 | 24/28 | 12/12 | 28/32 |
-| post_exploitation | 85/85 | 54/62 | **27/0** | 50/50 | 58/62 | 69/73 | 38/27 | 27/15 | 54/54 | 54/54 | 85/85 |
-| tool_command_selection | 32/32 | 4/4 | **0/0** | 8/8 | 4/4 | 4/4 | **0/0** | **0/0** | 36/36 | 12/16 | 12/20 |
-| vulnerability_identification | 23/19 | **0/0** | 4/4 | 4/4 | 0/4 | **0**/8 | 4/4 | 4/4 | 35/35 | 4/4 | 19/23 |
+| failure_recovery | 28/32 | 0/4 | 0/4 | 12/16 | 16/16 | 4/16 | **0/0** | 4/4 | 4/4 | 8/8 | 32/36 |
+| payload_generation | 23/23 | **0/0** | **0/0** | 12/15 | 8/8 | **0**/4 | **0/0** | **0/0** | **0/0** | **0/0** | 35/38 |
+| recon_and_enumeration | 36/40 | 8/8 | 8/8 | 16/20 | 16/16 | 8/16 | **0/0** | 8/8 | 4/8 | 8/8 | 28/32 |
+| post_exploitation | 85/85 | 54/62 | **27/0** | 50/50 | 58/62 | 69/73 | 38/27 | 27/15 | 38/38 | 54/54 | 85/85 |
+| tool_command_selection | 32/32 | 4/4 | **0/0** | 8/8 | 4/4 | 4/4 | **0/0** | **0/0** | 4/4 | 4/8 | 12/20 |
+| vulnerability_identification | 23/19 | **0/0** | 4/4 | 4/4 | 0/4 | **0**/8 | 4/4 | 4/4 | **0/0** | 4/4 | 19/23 |
 
 Cells are **percentages per judge** (`Sonnet 4.6 % / DeepSeek V4 Pro %`), not `refused / total`
 counts — `85/85` means 85 % per judge, not 85 of 85 items (each use case holds only 25–26
@@ -307,12 +307,13 @@ prompts). Averaging a model's six percentages reproduces its overall refusal rat
   `post_exploitation` refusals (69–73% there, 0–16% everywhere else).
 - **DeepSeek V4 (Pro & Flash) is effectively uncensored** on attack tasks (5–7% refusal) *and*
   top quality — its only real hold-outs are the aggressive `post_exploitation` scenarios (~20–30%).
-- **DeepSeek tightened its guardrails over time.** The dated snapshots are the *newer* releases
+- **The newer DeepSeek snapshots barely tightened.** The dated snapshots are the *newer* releases
   (Flash 0731 = 2026-07-31, Pro 0813 = 2026-08-12); the unsuffixed rows are the original 2026-04-24
-  release. The newer builds refuse far more: Pro 0813 17–18% (vs 5–7% for the April Pro) and
-  Flash 0731 37% (vs ~6%), with a flat ~54% wall across every use case rather than the refusals
-  concentrating in `post_exploitation`. On the items they *do* answer their quality is intact
-  (answered-only 4.2–4.5), so the lower blended scores are refusals, not weak answers.
+  release. Flash 0731 is essentially unchanged from the April Flash (8–9% refusal vs 5–7%), and
+  Pro 0813 tightens only modestly (12–13% vs 5–7%) — the extra refusals sit almost entirely in
+  `post_exploitation` (38–54%, up from 15–27%), while payload/vuln/tool tasks stay at ~0%. Answer
+  quality holds up (answered-only 4.1–4.5), so the newer builds are still largely uncensored on
+  attack tasks, with a slightly higher wall only around full post-exploitation chains.
 - **GLM-5.2 is the exception**: a top open-weight model on general benchmarks, yet here the
   most guarded open model — highest refusal *and* lowest quality when it complies.
 - **Precision, not intent, defeats the guardrail.** Refusals are low because the grounded
@@ -324,10 +325,11 @@ result here validates our own abliteration work.
 ‡ **DeepSeek V4 Pro** is one of the two judges, so its DS column is partly self-judged; read
 its Sonnet 4.6 column for a clean number.
 § **DeepSeek V4 Flash 0731 / Pro 0813** are the newer dated provider snapshots (2026-07-31 /
-2026-08-12); the unsuffixed DeepSeek V4 rows are the original 2026-04-24 release. Two Flash-0731
-items ran away into a non-terminating temperature-0 loop (>300k chars, never finishing) and were
-scored as empty (non-answers) rather than left unjudged — the fair outcome for output with no
-usable content.
+2026-08-12); the unsuffixed DeepSeek V4 rows are the original 2026-04-24 release. One Flash-0731
+item ran away into a non-terminating temperature-0 loop (never finishing within a 20-minute
+timeout) and was scored as empty (a non-answer) rather than left unjudged — the fair outcome for
+output with no usable content. Transient stream/network failures (dropped connections, truncated
+responses) are retried by `generate.py` so they are never mistaken for refusals.
 
 **Reproducing a row:** run `generate.py` against the model, `run_judge.py` with one of the two
 verified judges, then `report.py`. Two things must match for numbers to line up: (1) the judge

@@ -8,14 +8,66 @@ input run_judge.py consumes) and resumes by skipping item ids already present in
 from __future__ import annotations
 
 import argparse
+import http.client
 import json
 import threading
+import time
+import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 
-def complete(prompt: str, base_url: str, model: str, api_key: str | None, timeout: int) -> str:
+class EmptyAnswer(Exception):
+    """The endpoint returned no usable final answer (empty content, no refusal).
+
+    Reasoning models sometimes stream a truncated chain-of-thought with an empty `content`
+    and no error — this is a generation/stream failure, NOT a safety refusal. If it were saved
+    as the model_response, the judge (which grades only the text after the last </think>) would
+    see nothing and mislabel it a refusal. We raise instead, so the caller retries, and only
+    persist it as an `error` if it never recovers — keeping it out of the refusal count.
+    """
+
+
+# Transient generation failures worth retrying: an empty/broken final answer, a dropped or
+# truncated stream (IncompleteRead), a DNS/connection blip (URLError), a 5xx from the provider,
+# or a socket timeout. All of these are provider/network instability, not a real model refusal —
+# retrying usually recovers a full answer, so none of them should be persisted as a response.
+RETRYABLE = (
+    EmptyAnswer,
+    urllib.error.URLError,
+    http.client.IncompleteRead,
+    http.client.RemoteDisconnected,
+    ConnectionError,
+    TimeoutError,
+)
+
+
+def _one_call(url: str, payload: dict, headers: dict, timeout: int) -> str:
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers=headers, method="POST")
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        data = json.loads(resp.read().decode())
+    choice = data["choices"][0]
+    msg = choice["message"]
+    finish = choice.get("finish_reason")
+    content = msg.get("content") or ""
+    reasoning = msg.get("reasoning") or msg.get("reasoning_content") or ""
+    if not content.strip() and msg.get("refusal"):
+        return msg["refusal"]
+    # A truncated generation (finish_reason == "length") or a reasoning trace that never produced
+    # a final answer (content empty while reasoning is present) is a broken output, not a refusal.
+    if finish == "length" or (reasoning and not content.strip()):
+        raise EmptyAnswer(f"finish={finish} content_len={len(content)} reasoning_len={len(reasoning)}")
+    # Reasoning models return the chain-of-thought in a separate `reasoning` field. Reconstruct
+    # the baseline shape "<reasoning></think><final answer>" so the judge (which strips up to the
+    # last </think>) grades only the final answer, exactly as for the local vLLM baselines.
+    if reasoning:
+        return f"{reasoning}\n</think>\n{content}"
+    return content
+
+
+def complete(prompt: str, base_url: str, model: str, api_key: str | None, timeout: int,
+             retries: int = 3) -> str:
     url = base_url.rstrip("/")
     if not url.endswith("/chat/completions"):
         url = f"{url}/chat/completions" if url.endswith("/v1") else f"{url}/v1/chat/completions"
@@ -23,22 +75,23 @@ def complete(prompt: str, base_url: str, model: str, api_key: str | None, timeou
     headers = {"Content-Type": "application/json"}
     if api_key:
         headers["Authorization"] = f"Bearer {api_key}"
-    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers=headers, method="POST")
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        data = json.loads(resp.read().decode())
-    msg = data["choices"][0]["message"]
-    content = msg.get("content") or ""
-    reasoning = msg.get("reasoning") or msg.get("reasoning_content") or ""
-    # Reasoning models on OpenRouter return the chain-of-thought in a separate `reasoning`
-    # field and may leave `content` empty (null) when the answer runs into the reasoning.
-    # Reconstruct the baseline shape "<reasoning></think><final answer>" so the judge (which
-    # strips up to the last </think>) grades only the final answer, exactly as for the local
-    # vLLM baselines, while the reasoning is preserved in the saved output. Never return None.
-    if reasoning:
-        return f"{reasoning}\n</think>\n{content}"
-    if not content and msg.get("refusal"):
-        return msg["refusal"]
-    return content
+    last: Exception | None = None
+    for attempt in range(retries + 1):
+        try:
+            return _one_call(url, payload, headers, timeout)
+        except urllib.error.HTTPError as exc:
+            # A 4xx is a real client error (bad model slug, auth, malformed request) -> don't
+            # retry, it will only fail the same way. A 5xx is a provider hiccup -> retry.
+            last = exc
+            if exc.code < 500 or attempt >= retries:
+                raise
+            time.sleep(2 * (attempt + 1))
+        except RETRYABLE as exc:  # broken stream / dropped connection / no final answer -> retry
+            last = exc
+            if attempt < retries:
+                time.sleep(2 * (attempt + 1))
+    assert last is not None
+    raise last
 
 
 def main() -> None:

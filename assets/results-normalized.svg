@@ -33,10 +33,10 @@
 <circle cx="669.4" cy="203.0" r="6" fill="#e01e37" stroke="#ffffff" stroke-width="1.5"/>
 <text x="680.4" y="207.0" font-size="11.5" fill="#5b6773" text-anchor="start">+0.79</text>
 <text x="138" y="241.0" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="end">DeepSeek V4 Pro 0813</text>
-<line x1="531.7" y1="237.0" x2="665.9" y2="237.0" stroke="#e01e37" stroke-width="3" opacity="0.35"/>
-<circle cx="531.7" cy="237.0" r="5.5" fill="#ffffff" stroke="#5b6773" stroke-width="2"/>
-<circle cx="665.9" cy="237.0" r="6" fill="#e01e37" stroke="#ffffff" stroke-width="1.5"/>
-<text x="676.9" y="241.0" font-size="11.5" fill="#5b6773" text-anchor="start">+0.77</text>
+<line x1="568.3" y1="237.0" x2="667.6" y2="237.0" stroke="#e01e37" stroke-width="3" opacity="0.35"/>
+<circle cx="568.3" cy="237.0" r="5.5" fill="#ffffff" stroke="#5b6773" stroke-width="2"/>
+<circle cx="667.6" cy="237.0" r="6" fill="#e01e37" stroke="#ffffff" stroke-width="1.5"/>
+<text x="678.6" y="241.0" font-size="11.5" fill="#5b6773" text-anchor="start">+0.57</text>
 <text x="138" y="275.0" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="end">DeepSeek V4 Pro</text>
 <line x1="606.6" y1="271.0" x2="653.7" y2="271.0" stroke="#e01e37" stroke-width="3" opacity="0.35"/>
 <circle cx="606.6" cy="271.0" r="5.5" fill="#ffffff" stroke="#5b6773" stroke-width="2"/>
@@ -53,10 +53,10 @@
 <circle cx="624.1" cy="339.0" r="6" fill="#e01e37" stroke="#ffffff" stroke-width="1.5"/>
 <text x="635.1" y="343.0" font-size="11.5" fill="#5b6773" text-anchor="start">+0.51</text>
 <text x="138" y="377.0" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="end">DeepSeek V4 Flash 0731</text>
-<line x1="350.4" y1="373.0" x2="622.3" y2="373.0" stroke="#e01e37" stroke-width="3" opacity="0.35"/>
-<circle cx="350.4" cy="373.0" r="5.5" fill="#ffffff" stroke="#5b6773" stroke-width="2"/>
-<circle cx="622.3" cy="373.0" r="6" fill="#e01e37" stroke="#ffffff" stroke-width="1.5"/>
-<text x="633.3" y="377.0" font-size="11.5" fill="#5b6773" text-anchor="start">+1.56</text>
+<line x1="543.9" y1="373.0" x2="606.6" y2="373.0" stroke="#e01e37" stroke-width="3" opacity="0.35"/>
+<circle cx="543.9" cy="373.0" r="5.5" fill="#ffffff" stroke="#5b6773" stroke-width="2"/>
+<circle cx="606.6" cy="373.0" r="6" fill="#e01e37" stroke="#ffffff" stroke-width="1.5"/>
+<text x="617.6" y="377.0" font-size="11.5" fill="#5b6773" text-anchor="start">+0.36</text>
 <text x="138" y="411.0" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="end">Huihui-35B abl</text>
 <line x1="563.1" y1="407.0" x2="596.2" y2="407.0" stroke="#e01e37" stroke-width="3" opacity="0.35"/>
 <circle cx="563.1" cy="407.0" r="5.5" fill="#ffffff" stroke="#5b6773" stroke-width="2"/>

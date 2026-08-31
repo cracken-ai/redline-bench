@@ -34,8 +34,8 @@
 <text x="763" y="105" font-size="12" fill="#1f2933" text-anchor="middle">32</text>
 <rect x="802" y="78" width="74" height="46" rx="3" fill="#e96879"/>
 <text x="839" y="105" font-size="12" fill="#ffffff" text-anchor="middle">54</text>
-<rect x="878" y="78" width="74" height="46" rx="3" fill="#e96879"/>
-<text x="915" y="105" font-size="12" fill="#ffffff" text-anchor="middle">54</text>
+<rect x="878" y="78" width="74" height="46" rx="3" fill="#ee8e9b"/>
+<text x="915" y="105" font-size="12" fill="#1f2933" text-anchor="middle">38</text>
 <text x="108" y="153" font-size="12" fill="#1f2933" text-anchor="end">recon</text>
 <rect x="118" y="126" width="74" height="46" rx="3" fill="#ee8e9b"/>
 <text x="155" y="153" font-size="12" fill="#1f2933" text-anchor="middle">38</text>
@@ -55,10 +55,10 @@
 <text x="687" y="153" font-size="12" fill="#1f2933" text-anchor="middle">8</text>
 <rect x="726" y="126" width="74" height="46" rx="3" fill="#fbe9ec"/>
 <text x="763" y="153" font-size="12" fill="#1f2933" text-anchor="middle">0</text>
-<rect x="802" y="126" width="74" height="46" rx="3" fill="#f7ccd2"/>
-<text x="839" y="153" font-size="12" fill="#1f2933" text-anchor="middle">12</text>
-<rect x="878" y="126" width="74" height="46" rx="3" fill="#f2aab4"/>
-<text x="915" y="153" font-size="12" fill="#1f2933" text-anchor="middle">26</text>
+<rect x="802" y="126" width="74" height="46" rx="3" fill="#f8d5da"/>
+<text x="839" y="153" font-size="12" fill="#1f2933" text-anchor="middle">8</text>
+<rect x="878" y="126" width="74" height="46" rx="3" fill="#f9dadf"/>
+<text x="915" y="153" font-size="12" fill="#1f2933" text-anchor="middle">6</text>
 <text x="108" y="201" font-size="12" fill="#1f2933" text-anchor="end">payload</text>
 <rect x="118" y="174" width="74" height="46" rx="3" fill="#f3b2bb"/>
 <text x="155" y="201" font-size="12" fill="#1f2933" text-anchor="middle">23</text>
@@ -78,10 +78,10 @@
 <text x="687" y="201" font-size="12" fill="#1f2933" text-anchor="middle">0</text>
 <rect x="726" y="174" width="74" height="46" rx="3" fill="#fbe9ec"/>
 <text x="763" y="201" font-size="12" fill="#1f2933" text-anchor="middle">0</text>
-<rect x="802" y="174" width="74" height="46" rx="3" fill="#f9dfe3"/>
-<text x="839" y="201" font-size="12" fill="#1f2933" text-anchor="middle">4</text>
-<rect x="878" y="174" width="74" height="46" rx="3" fill="#ed8492"/>
-<text x="915" y="201" font-size="12" fill="#1f2933" text-anchor="middle">42</text>
+<rect x="802" y="174" width="74" height="46" rx="3" fill="#fbe9ec"/>
+<text x="839" y="201" font-size="12" fill="#1f2933" text-anchor="middle">0</text>
+<rect x="878" y="174" width="74" height="46" rx="3" fill="#fbe9ec"/>
+<text x="915" y="201" font-size="12" fill="#1f2933" text-anchor="middle">0</text>
 <text x="108" y="249" font-size="12" fill="#1f2933" text-anchor="end">failure_rec.</text>
 <rect x="118" y="222" width="74" height="46" rx="3" fill="#f1a1ac"/>
 <text x="155" y="249" font-size="12" fill="#1f2933" text-anchor="middle">30</text>
@@ -101,10 +101,10 @@
 <text x="687" y="249" font-size="12" fill="#1f2933" text-anchor="middle">4</text>
 <rect x="726" y="222" width="74" height="46" rx="3" fill="#fbe9ec"/>
 <text x="763" y="249" font-size="12" fill="#1f2933" text-anchor="middle">0</text>
-<rect x="802" y="222" width="74" height="46" rx="3" fill="#f5c2c9"/>
-<text x="839" y="249" font-size="12" fill="#1f2933" text-anchor="middle">16</text>
-<rect x="878" y="222" width="74" height="46" rx="3" fill="#f2a6b0"/>
-<text x="915" y="249" font-size="12" fill="#1f2933" text-anchor="middle">28</text>
+<rect x="802" y="222" width="74" height="46" rx="3" fill="#f8d5da"/>
+<text x="839" y="249" font-size="12" fill="#1f2933" text-anchor="middle">8</text>
+<rect x="878" y="222" width="74" height="46" rx="3" fill="#f9dfe3"/>
+<text x="915" y="249" font-size="12" fill="#1f2933" text-anchor="middle">4</text>
 <text x="108" y="297" font-size="12" fill="#1f2933" text-anchor="end">tool_cmd</text>
 <rect x="118" y="270" width="74" height="46" rx="3" fill="#f09ca7"/>
 <text x="155" y="297" font-size="12" fill="#1f2933" text-anchor="middle">32</text>
@@ -124,10 +124,10 @@
 <text x="687" y="297" font-size="12" fill="#1f2933" text-anchor="middle">0</text>
 <rect x="726" y="270" width="74" height="46" rx="3" fill="#fbe9ec"/>
 <text x="763" y="297" font-size="12" fill="#1f2933" text-anchor="middle">0</text>
-<rect x="802" y="270" width="74" height="46" rx="3" fill="#f6c7ce"/>
-<text x="839" y="297" font-size="12" fill="#1f2933" text-anchor="middle">14</text>
-<rect x="878" y="270" width="74" height="46" rx="3" fill="#ef939f"/>
-<text x="915" y="297" font-size="12" fill="#1f2933" text-anchor="middle">36</text>
+<rect x="802" y="270" width="74" height="46" rx="3" fill="#f9dadf"/>
+<text x="839" y="297" font-size="12" fill="#1f2933" text-anchor="middle">6</text>
+<rect x="878" y="270" width="74" height="46" rx="3" fill="#f9dfe3"/>
+<text x="915" y="297" font-size="12" fill="#1f2933" text-anchor="middle">4</text>
 <text x="108" y="345" font-size="12" fill="#1f2933" text-anchor="end">vuln_id</text>
 <rect x="118" y="318" width="74" height="46" rx="3" fill="#f4b6bf"/>
 <text x="155" y="345" font-size="12" fill="#1f2933" text-anchor="middle">21</text>
@@ -149,6 +149,6 @@
 <text x="763" y="345" font-size="12" fill="#1f2933" text-anchor="middle">4</text>
 <rect x="802" y="318" width="74" height="46" rx="3" fill="#f9dfe3"/>
 <text x="839" y="345" font-size="12" fill="#1f2933" text-anchor="middle">4</text>
-<rect x="878" y="318" width="74" height="46" rx="3" fill="#ef95a1"/>
-<text x="915" y="345" font-size="12" fill="#1f2933" text-anchor="middle">35</text>
+<rect x="878" y="318" width="74" height="46" rx="3" fill="#fbe9ec"/>
+<text x="915" y="345" font-size="12" fill="#1f2933" text-anchor="middle">0</text>
 </svg>
