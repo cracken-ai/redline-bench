@@ -19,6 +19,10 @@ MODELS = [
     ("DeepSeek V4 Flash 0731", 8, 9, 3.73, 3.78, "DS V4 Flash 0731", 12, 30, "start"),
     ("DeepSeek V4 Pro 0813",   12, 13, 3.84, 3.95, "DS V4 Pro 0813", 12, 20, "start"),
     ("GLM-5.2",             35, 39, 2.88, 2.82, "GLM-5.2",          0, -14, "middle"),
+    ("GLM-5.3-Flash",        22, 23, 3.51, 3.51, "GLM-5.3-Flash",   -12, -12, "end"),
+    ("GLM-5.3-Flash abl",     6,  7, 4.25, 4.15, "GLM-5.3-F abl",    12,  30, "start"),
+    ("GLM-5.3-Standard",     18, 18, 3.69, 3.62, "GLM-5.3-Std",      12,  16, "start"),
+    ("GLM-5.3-Standard abl", 10,  7, 4.07, 4.15, "GLM-5.3-S abl",   -12,  18, "end"),
 ]
 
 W, H = 820, 500
@@ -47,7 +51,7 @@ def svg(mode):
     s.append(f'<text x="{L}" y="26" font-size="17" font-weight="700" fill="{c["ink"]}">'
              f'Refusal vs. capability</text>')
     s.append(f'<text x="{W-R}" y="26" font-size="12" fill="{c["muted"]}" text-anchor="end">'
-             f'mean of 2 judges · 11 models</text>')
+             f'mean of 2 judges · 15 models</text>')
     # y gridlines + labels (quality 0..5)
     for q in range(0, 6):
         y = ypix(q)
@@ -82,28 +86,29 @@ def svg(mode):
 # ---- heatmap: refusal % by use_case (mean of the two judges) ----
 # cell = (s46, ds) refusal percentages
 HM_MODELS = ["gemma", "GLM", "Kimi3", "Kimi2.7", "Kimi2.6", "Qwen", "Huihui",
-             "DS-Pro", "DS-Flash", "DS-Pro 0813", "DS-Flash 0731"]
+             "DS-Pro", "DS-Flash", "DS-Pro 0813", "DS-Flash 0731",
+             "GLM5.3-F", "GLM5.3-F-abl", "GLM5.3-S", "GLM5.3-S-abl"]
 HM_UCS = ["post_exploit.", "recon", "payload", "failure_rec.", "tool_cmd", "vuln_id"]
 # rows = use_case, cols = model (order matches HM_MODELS)
 HM = {
     "post_exploit.": {"gemma": (85, 85), "GLM": (85, 85), "Kimi3": (69, 73), "Kimi2.7": (58, 62), "Kimi2.6": (50, 50),
                         "Qwen": (54, 62), "Huihui": (27, 0), "DS-Pro": (27, 15), "DS-Flash": (38, 27),
-                        "DS-Pro 0813": (54, 54), "DS-Flash 0731": (38, 38)},
+                        "DS-Pro 0813": (54, 54), "DS-Flash 0731": (38, 38), "GLM5.3-F": (85, 85), "GLM5.3-F-abl": (31, 31), "GLM5.3-S": (69, 69), "GLM5.3-S-abl": (27, 12)},
     "recon":           {"gemma": (36, 40), "GLM": (28, 32), "Kimi3": (8, 16), "Kimi2.7": (16, 16), "Kimi2.6": (16, 20),
                         "Qwen": (8, 8),   "Huihui": (8, 8),  "DS-Pro": (8, 8),   "DS-Flash": (0, 0),
-                        "DS-Pro 0813": (8, 8), "DS-Flash 0731": (4, 8)},
+                        "DS-Pro 0813": (8, 8), "DS-Flash 0731": (4, 8), "GLM5.3-F": (12, 12), "GLM5.3-F-abl": (4, 8), "GLM5.3-S": (8, 12), "GLM5.3-S-abl": (16, 16)},
     "payload":         {"gemma": (23, 23), "GLM": (35, 38), "Kimi3": (0, 4), "Kimi2.7": (8, 8),   "Kimi2.6": (12, 15),
                         "Qwen": (0, 0),   "Huihui": (0, 0),  "DS-Pro": (0, 0),   "DS-Flash": (0, 0),
-                        "DS-Pro 0813": (0, 0), "DS-Flash 0731": (0, 0)},
+                        "DS-Pro 0813": (0, 0), "DS-Flash 0731": (0, 0), "GLM5.3-F": (4, 4), "GLM5.3-F-abl": (0, 0), "GLM5.3-S": (0, 0), "GLM5.3-S-abl": (4, 4)},
     "failure_rec.":    {"gemma": (28, 32), "GLM": (32, 36), "Kimi3": (4, 16), "Kimi2.7": (16, 16), "Kimi2.6": (12, 16),
                         "Qwen": (0, 4),   "Huihui": (0, 4),  "DS-Pro": (4, 4),   "DS-Flash": (0, 0),
-                        "DS-Pro 0813": (8, 8), "DS-Flash 0731": (4, 4)},
+                        "DS-Pro 0813": (8, 8), "DS-Flash 0731": (4, 4), "GLM5.3-F": (16, 20), "GLM5.3-F-abl": (0, 0), "GLM5.3-S": (8, 8), "GLM5.3-S-abl": (4, 4)},
     "tool_cmd":        {"gemma": (32, 32), "GLM": (12, 20), "Kimi3": (4, 4), "Kimi2.7": (4, 4),   "Kimi2.6": (8, 8),
                         "Qwen": (4, 4),   "Huihui": (0, 0),  "DS-Pro": (0, 0),   "DS-Flash": (0, 0),
-                        "DS-Pro 0813": (4, 8), "DS-Flash 0731": (4, 4)},
+                        "DS-Pro 0813": (4, 8), "DS-Flash 0731": (4, 4), "GLM5.3-F": (8, 8), "GLM5.3-F-abl": (0, 0), "GLM5.3-S": (20, 20), "GLM5.3-S-abl": (8, 8)},
     "vuln_id":         {"gemma": (23, 19), "GLM": (19, 23), "Kimi3": (0, 8), "Kimi2.7": (0, 4),   "Kimi2.6": (4, 4),
                         "Qwen": (0, 0),   "Huihui": (4, 4),  "DS-Pro": (4, 4),   "DS-Flash": (4, 4),
-                        "DS-Pro 0813": (4, 4), "DS-Flash 0731": (0, 0)},
+                        "DS-Pro 0813": (4, 4), "DS-Flash 0731": (0, 0), "GLM5.3-F": (8, 8), "GLM5.3-F-abl": (0, 0), "GLM5.3-S": (0, 0), "GLM5.3-S-abl": (0, 0)},
 }
 
 def lerp(a, b, t): return a + (b - a) * t
@@ -161,17 +166,21 @@ def heatmap(mode):
 # The gap is the capability zeroed out by refusals -- what domain abliteration recovers.
 # (model, blended_avg, normalized_avg); rows drawn top->bottom in this order.
 DB = [
-    ("Kimi K3",             3.81, 4.61),
-    ("GLM-5.2",             2.85, 4.54),
-    ("Kimi K2.6",           3.68, 4.50),
-    ("Kimi K2.7-Code",      3.69, 4.48),
-    ("DeepSeek V4 Pro 0813",3.90, 4.47),
-    ("DeepSeek V4 Pro",     4.12, 4.39),
-    ("DeepSeek V4 Flash",   4.03, 4.30),
-    ("Qwen3.6-27B",         3.71, 4.22),
-    ("DeepSeek V4 Flash 0731", 3.76, 4.12),
-    ("Huihui-35B abl",      3.87, 4.06),
-    ("gemma-4-E2B",         1.90, 3.06),
+    ('Kimi K3', 3.81, 4.61),
+    ('GLM-5.2', 2.85, 4.54),
+    ('GLM-5.3-Flash', 3.51, 4.53),
+    ('Kimi K2.6', 3.68, 4.50),
+    ('GLM-5.3-Std abl', 4.11, 4.49),
+    ('Kimi K2.7-Code', 3.69, 4.48),
+    ('GLM-5.3-Flash abl', 4.20, 4.48),
+    ('DeepSeek V4 Pro 0813', 3.90, 4.47),
+    ('GLM-5.3-Std', 3.66, 4.46),
+    ('DeepSeek V4 Pro', 4.12, 4.39),
+    ('DeepSeek V4 Flash', 4.03, 4.30),
+    ('Qwen3.6-27B', 3.71, 4.22),
+    ('DeepSeek V4 Flash 0731', 3.76, 4.12),
+    ('Huihui-35B abl', 3.87, 4.06),
+    ('gemma-4-E2B', 1.90, 3.06),
 ]
 DB_HL = "Kimi K3"  # highlighted row
 
@@ -239,6 +248,10 @@ TBL = [
     ("DeepSeek V4 Flash 0731",      "3.73 / 3.78", "4.07 / 4.16", "+0.36"),
     ("Huihui-35B-A3B (abliterated)","3.79 / 3.95", "4.06 / 4.06", "+0.19"),
     ("gemma-4-E2B",                 "1.96 / 1.83", "3.15 / 2.97", "+1.16"),
+    ("GLM-5.3-Flash",               "3.51 / 3.51", "4.51 / 4.55", "+1.02"),
+    ("GLM-5.3-Flash (abliterated)", "4.25 / 4.15", "4.52 / 4.44", "+0.28"),
+    ("GLM-5.3-Standard",            "3.69 / 3.62", "4.48 / 4.43", "+0.80"),
+    ("GLM-5.3-Standard (abliterated)","4.07 / 4.15", "4.51 / 4.47", "+0.38"),
 ]
 TBL_HEADS = ["Model", "Blended (S4.6 / DS)", "Answered-only (S4.6 / DS)", "Recovered"]
 TBL_HL = "Kimi K3"
