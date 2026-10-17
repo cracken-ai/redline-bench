@@ -62,6 +62,10 @@ STANDARD_RUBRIC = {
 _STD_WEIGHTS = {c["name"]: c["weight"] for c in STANDARD_RUBRIC["criteria"]}
 
 
+class GenerationError(Exception):
+    """The response could not be generated and must remain unscored."""
+
+
 def weighted_score(criteria_scores: dict) -> float:
     total = sum(float(criteria_scores.get(n, 0)) * w for n, w in _STD_WEIGHTS.items())
     return round(max(0.0, min(5.0, total)), 2)
@@ -259,8 +263,10 @@ def main() -> None:
         item = dict(row["item"])
         # Each benchmark record already carries its verification_criteria.
         item["verification_criteria"] = item.get("verification_criteria")
-        resp = strip_thinking(row.get("model_response", ""))
         try:
+            if row.get("error"):
+                raise GenerationError(row["error"])
+            resp = strip_thinking(row.get("model_response", ""))
             messages = build_judge_messages(item, resp, STANDARD_RUBRIC)
             reply = call_judge(messages)
             verdict = parse_judge_response(reply)

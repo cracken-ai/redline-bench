@@ -171,6 +171,9 @@ python view.py results/mymodel_model_outputs.jsonl --limit 5
 `report.py` auto-discovers every `*_rubric_verdicts.jsonl` in the directory, so evaluating a
 new model is just: run steps 1–2 with a new `--output` name, then re-run `report.py`.
 
+Generation failures are retained as unscored error verdicts without calling the judge.
+`report.py` counts these errors and excludes them from refusal and quality metrics.
+
 ### Invariants that keep refusal rates honest
 
 - **Temperature 0.**
